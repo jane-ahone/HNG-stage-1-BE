@@ -1,6 +1,12 @@
 export async function fetchFunFact(num) {
-  const funFact = await fetch(`http://numbersapi.com/${num}/math`);
-  return funFact;
+  try {
+    const response = await fetch(`http://numbersapi.com/${num}/math`);
+    if (!response.ok) {
+      throw new Error();
+    }
+    return await response.text();
+  } catch (error) {}
+  return `No fun fact available for ${num}`;
 }
 export function validateNumberInput(input) {
   if (input === undefined || input === null) {
