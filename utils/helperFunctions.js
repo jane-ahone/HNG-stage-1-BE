@@ -23,7 +23,7 @@ export function validateNumberInput(input) {
     return {
       isValid: false,
       error: "Invalid number input",
-      type: "alphabet",
+      type: num,
     };
   }
   if (!Number.isInteger(num)) {
