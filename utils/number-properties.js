@@ -25,7 +25,6 @@ export function isPerfect(num) {
   }
   let sum = 0;
   num = Number(num);
-  console.log(num);
 
   for (let i = 1; i <= num / 2; i++) {
     if (num % i == 0) {
