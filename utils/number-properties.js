@@ -48,8 +48,7 @@ export function isArmstrong(num) {
   const sum = numStr.split("").reduce((acc, digit) => {
     return acc + Math.pow(parseInt(digit), numDigits);
   }, 0);
-
-  return sum === num;
+  return sum.toString() === num;
 }
 export function digitSum(num) {
   const absoluteNum = Math.abs(num);
