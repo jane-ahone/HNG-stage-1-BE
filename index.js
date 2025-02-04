@@ -22,7 +22,9 @@ app.get("/", (req, res) => {
 
 app.get("/api/classify-number", async (req, res) => {
   try {
-    const number = Number(req.query.number);
+    const number = req.query.number;
+    console.log(number);
+    console.log("input number", req.query.number);
     const validNum = validateNumberInput(number);
     if (validNum.isValid) {
       const properties = [];

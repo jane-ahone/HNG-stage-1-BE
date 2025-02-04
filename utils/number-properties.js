@@ -20,6 +20,9 @@ export function isEven(num) {
 }
 
 export function isPerfect(num) {
+  if (num <= 0) {
+    return false;
+  }
   let sum = 0;
   num = Number(num);
   console.log(num);
@@ -37,6 +40,9 @@ export function isPerfect(num) {
 }
 
 export function isArmstrong(num) {
+  if (num < 0) {
+    return false;
+  }
   const numStr = num.toString();
   const numDigits = numStr.length;
 
@@ -47,10 +53,12 @@ export function isArmstrong(num) {
   return sum === num;
 }
 export function digitSum(num) {
-  const numStr = num.toString();
+  const absoluteNum = Math.abs(num);
+  const numStr = absoluteNum.toString();
 
-  const sum = numStr.split("").reduce((acc, digit) => {
+  let sum = numStr.split("").reduce((acc, digit) => {
     return acc + parseInt(digit);
   }, 0);
+
   return sum;
 }

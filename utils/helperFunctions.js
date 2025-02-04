@@ -9,7 +9,7 @@ export async function fetchFunFact(num) {
   return `No fun fact available for ${num}`;
 }
 export function validateNumberInput(input) {
-  if (input === undefined || input === null) {
+  if (input === undefined || input === null || input === "") {
     return {
       isValid: false,
       error: "No number provided",
