@@ -49,7 +49,7 @@ app.get("/api/classify-number", async (req, res) => {
         fun_fact: response.text,
       });
     } else {
-      return res.status(400).json({ type: validNum.type, error: true });
+      return res.status(400).json({ number: validNum.number, error: true });
     }
   } catch (error) {
     return res
