@@ -7,7 +7,7 @@ import {
   isPerfect,
   isPrime,
 } from "./utils/number-properties.js";
-import { fetchFunFact, validateNumberInput } from "./utils/fetchFunFact.js";
+import { fetchFunFact, validateNumberInput } from "./utils/helperFunctions.js";
 
 const app = express();
 
