@@ -23,14 +23,14 @@ export function validateNumberInput(input) {
     return {
       isValid: false,
       error: "Invalid number input",
-      type: num,
+      type: input,
     };
   }
   if (!Number.isInteger(num)) {
     return {
       isValid: false,
       error: "Input must be an integer",
-      type: "non-integer",
+      type: input,
     };
   }
 
