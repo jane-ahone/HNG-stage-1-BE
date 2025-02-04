@@ -5,10 +5,10 @@ export function isPrime(num) {
 
   for (let i = 2; i <= sqrt; i++) {
     if (num % i == 0) {
-      return true;
+      return false;
     }
   }
-  return false;
+  return true;
 }
 
 export function isEven(num) {
@@ -21,10 +21,12 @@ export function isEven(num) {
 
 export function isPerfect(num) {
   let sum = 0;
+  num = Number(num);
+  console.log(num);
 
   for (let i = 1; i <= num / 2; i++) {
     if (num % i == 0) {
-      sum = num + sum;
+      sum = i + sum;
     }
   }
   if (sum == num) {

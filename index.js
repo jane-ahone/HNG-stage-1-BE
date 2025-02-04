@@ -20,11 +20,11 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/api/classify-number", (req, res) => {
+app.get("/api/classify-number", async (req, res) => {
   try {
-    const number = req.query.number;
+    const number = Number(req.query.number);
     const validNum = validateNumberInput(number);
-    if (validNum.isValid == true) {
+    if (validNum.isValid) {
       const properties = [];
 
       if (isArmstrong(number)) {
@@ -36,6 +36,7 @@ app.get("/api/classify-number", (req, res) => {
       } else {
         properties.push("odd");
       }
+      const response = await fetchFunFact(number);
 
       res.status(200).json({
         number: number,
@@ -43,13 +44,15 @@ app.get("/api/classify-number", (req, res) => {
         is_perfect: isPerfect(number),
         properties: properties,
         digit_sum: digitSum(number),
-        fun_fact: fetchFunFact(number),
+        fun_fact: response.text,
       });
     } else {
-      res.status(400).json(validNum.error);
+      return res.status(400).json({ type: validNum.type, error: true });
     }
   } catch (error) {
-    res.status(500).json({ error: true, message: "Internal Server error" });
+    return res
+      .status(500)
+      .json({ error: true, message: "Internal Server Error" });
   }
 });
 
